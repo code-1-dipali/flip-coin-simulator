@@ -1,9 +1,16 @@
-echo "Welcome To Flip Coin Simulator"
+read -p "How many times you want to toss the coin: " num
+headCount=0
+tailCount=0
+for(( i=1; i<=$num; i++ ))
+do
+	random=$((RANDOM%2))
+	if [ $random -eq 1 ]
+	then
+		((headCount++))
+	else
+		((tailCount++))
+	fi
+done
 
-random=$((RANDOM%2))
-if [ $random -eq 1 ]
-then
-	echo "Heads"
-else
-	echo "Tails"
-fi
+echo "Head won $headCount times"
+echo "Tail won $tailCount times"
